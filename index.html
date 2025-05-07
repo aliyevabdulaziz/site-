@@ -5,18 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dilrabo Isroilova - 3 kunlik BEPUL master-klass</title>
 
-    <!-- Preload critical fonts -->
+    <!-- Critical CSS inline qilish -->
+    <style>
+        /* Critical CSS - faqat ko'rinadigan qismlar uchun asosiy stillar */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .date-time-pill {
+            display: inline-block;
+            background-color: #D63031;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .main-title {
+            font-size: 2.5rem;
+            color: #D63031;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .description {
+            margin-bottom: 20px;
+        }
+        .desc-text {
+            font-weight: 600;
+            margin: 5px 0;
+        }
+        .register-button {
+            display: inline-block;
+            background-color: #D63031;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        .person-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .benefit-icon {
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+    </style>
+
+    <!-- Preconnect va DNS-prefetch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Asosiy shrift - display=swap bilan -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"></noscript>
 
-    <!-- Inline critical CSS -->
+    <!-- Critical olmagan shriftlarni kechroq yuklash -->
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw5aXx-p7K4KLg.woff2" crossorigin>
 
-    <!-- Preload main image -->
-    <link rel="preload" as="image" href="mentor.webp">
+    <!-- Asosiy rasim -->
+    <link rel="preload" as="image" href="mentor.webp" fetchpriority="high">
 
     <!-- Load non-critical CSS asynchronously -->
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
+
+    <!-- Core web vitals uchun lazy loading -->
+    <script>
+        // Intersection Observer for lazy loading
+        document.addEventListener('DOMContentLoaded', function() {
+            if ('IntersectionObserver' in window) {
+                const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.removeAttribute('loading');
+                            imageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    imageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -43,7 +140,7 @@
             </div>
 
             <div class="image-section">
-                <img src="mentor.webp" alt="Dilrabo Isroilova" class="person-image" width="400" height="400" loading="lazy">
+                <img src="mentor.webp" alt="Dilrabo Isroilova" class="person-image" width="400" height="400" fetchpriority="high">
             </div>
 
             <div class="cta-button">
@@ -124,7 +221,8 @@
         <div class="footer-copyright">Barcha huquqlar himoyalangan, 2025.</div>
     </footer>
 
-    <!-- Defer non-critical JavaScript -->
-    <script src="main.js" defer></script>
+    <!-- JavaScript yuklanishini optimize qilish -->
+    <script src="main.js">
+    </script>
 </body>
 </html>

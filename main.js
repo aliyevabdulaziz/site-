@@ -126,3 +126,40 @@ registrationForm.addEventListener('submit', function (e) {
 		});
 	}
 });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+					const modal = document.getElementById('registrationModal');
+					const btn = document.getElementById('openModalBtn');
+					const closeBtn = document.querySelector('.close-button');
+
+					if (btn && modal && closeBtn) {
+						btn.addEventListener('click', function () {
+							modal.style.display = 'block';
+						});
+
+						closeBtn.addEventListener('click', function () {
+							modal.style.display = 'none';
+						});
+
+						window.addEventListener('click', function (event) {
+							if (event.target === modal) {
+								modal.style.display = 'none';
+							}
+						});
+					}
+
+					// Form validation - asosiy JavaScript yuklangandan keyin
+					const loadMainJS = function () {
+						const script = document.createElement('script');
+						script.src = 'main.js';
+						document.body.appendChild(script);
+					};
+
+					// Main JS-ni kechroq yuklash
+					if ('requestIdleCallback' in window) {
+						requestIdleCallback(loadMainJS);
+					} else {
+						setTimeout(loadMainJS, 1000);
+					}
+				});
