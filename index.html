@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dilrabo Isroilova - 3 kunlik BEPUL master-klass</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"></noscript>
+
+    <!-- Inline critical CSS -->
+
+    <!-- Preload main image -->
+    <link rel="preload" as="image" href="mentor.webp">
+
+    <!-- Load non-critical CSS asynchronously -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 <body>
     <div class="container">
@@ -32,11 +43,11 @@
             </div>
 
             <div class="image-section">
-                <img src="mentor.webp" alt="Dilrabo Isroilova" class="person-image">
+                <img src="mentor.webp" alt="Dilrabo Isroilova" class="person-image" width="400" height="400" loading="lazy">
             </div>
 
             <div class="cta-button">
-                <a  id="openModalBtn" class="register-button">BEPUL QATNASHISH</a>
+                <a id="openModalBtn" class="register-button">BEPUL QATNASHISH</a>
             </div>
 
             <div class="benefits-section">
@@ -75,7 +86,7 @@
         </div>
     </div>
 
-        <div id="registrationModal" class="modal">
+    <div id="registrationModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2 class="modal-title">BEPUL master-klassga ro'yxatdan o'ting</h2>
@@ -104,16 +115,16 @@
         </div>
     </div>
 
-
     <footer class="new-footer">
-            <div class="footer-name">Dilrabo Isroilova</div>
-            <div class="footer-phone">+998 99 974 88 99</div>
-            <div class="footer-disclaimer">
-                This site or product is not part of or endorsed by Facebook, Google, or any social media platforms. FACEBOOK, INSTAGRAM, META PLATFORMS, Inc. YOUTUBE and GOOGLE are trademarks of ALPHABET, Inc.
-            </div>
-            <div class="footer-copyright">Barcha huquqlar himoyalangan, 2025.</div>
-        </footer>
+        <div class="footer-name">Dilrabo Isroilova</div>
+        <div class="footer-phone">+998 99 974 88 99</div>
+        <div class="footer-disclaimer">
+            This site or product is not part of or endorsed by Facebook, Google, or any social media platforms. FACEBOOK, INSTAGRAM, META PLATFORMS, Inc. YOUTUBE and GOOGLE are trademarks of ALPHABET, Inc.
+        </div>
+        <div class="footer-copyright">Barcha huquqlar himoyalangan, 2025.</div>
+    </footer>
 
-    <script src="main.js"></script>
+    <!-- Defer non-critical JavaScript -->
+    <script src="main.js" defer></script>
 </body>
 </html>
