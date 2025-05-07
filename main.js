@@ -135,7 +135,7 @@ registrationForm.addEventListener('submit', function (e) {
 
 					if (btn && modal && closeBtn) {
 						btn.addEventListener('click', function () {
-							modal.style.display = 'block';
+							modal.style.display = 'flex';
 						});
 
 						closeBtn.addEventListener('click', function () {
