@@ -5,6 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dilrabo Isroilova - 3 kunlik BEPUL master-klass</title>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f2e6e6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 455px;
+            min-height: 100vh;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .content {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .date-time-pill {
+            background-color: white;
+            border-radius: 20px;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .register-button {
+            display: inline-block;
+            background-color: #d63031;
+            color: white;
+            font-weight: 600;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            width: 100%;
+            box-shadow: 0 8px 0 0 #9D1D22;
+        }
+    </style>
 
     <!-- Preconnect va DNS-prefetch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,31 +82,6 @@
     <!-- Load non-critical CSS asynchronously -->
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
-
-    <!-- Core web vitals uchun lazy loading -->
-    <script>
-        // Intersection Observer for lazy loading
-        document.addEventListener('DOMContentLoaded', function() {
-            if ('IntersectionObserver' in window) {
-                const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-
-                const imageObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            const lazyImage = entry.target;
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.removeAttribute('loading');
-                            imageObserver.unobserve(lazyImage);
-                        }
-                    });
-                });
-
-                lazyImages.forEach(function(lazyImage) {
-                    imageObserver.observe(lazyImage);
-                });
-            }
-        });
-    </script>
 </head>
 <body>
     <div class="container">
