@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dilrabo Isroilova - 3 kunlik BEPUL master-klass</title>
 
+    <!-- Meta taglari -->
+    <meta name="description" content="Dilrabo Isroilovadan 3 kunlik BEPUL master-klass. 3 KUN = 3 KALIT. Bu kalitlarga ega bo'lgan o'quvchilarim 1 kundayoq o'z hayotlarini butkul o'zgartirib yuborishdi.">
+    <meta http-equiv="Cache-Control" content="max-age=31536000">
+
+    <!-- Preconnect to required origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+
     <style>
         * {
             margin: 0;
@@ -62,26 +74,68 @@
             width: 100%;
             box-shadow: 0 8px 0 0 #9D1D22;
         }
+
+        /* Additional critical CSS */
+        .date-time {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .master-class-info {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .description {
+            margin-bottom: 15px;
+        }
+
+        .desc-text {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .invitation {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .image-section {
+            display: flex;
+            justify-content: center;
+        }
+
+        .person-image {
+            max-width: 95%;
+            height: auto;
+            max-height: 400px;
+            border-radius: 5px;
+        }
+
+        .cta-button {
+            width: 95%;
+            margin: -30px auto 20px;
+        }
+
+        /* Optimize modal display for first paint */
+        .modal {
+            display: none;
+        }
     </style>
 
-    <!-- Preconnect va DNS-prefetch -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-
-    <!-- Asosiy shrift - display=swap bilan -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"></noscript>
-
-    <!-- Critical olmagan shriftlarni kechroq yuklash -->
-    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw5aXx-p7K4KLg.woff2" crossorigin>
-
-    <!-- Asosiy rasim -->
+    <!-- Preload critical image -->
     <link rel="preload" as="image" href="mentor.webp" fetchpriority="high">
 
     <!-- Load non-critical CSS asynchronously -->
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
+
+    <!-- Preload critical JavaScript -->
+    <link rel="preload" href="main.js" as="script">
 </head>
 <body>
     <div class="container">
@@ -108,7 +162,7 @@
             </div>
 
             <div class="image-section">
-                <img src="mentor.webp" alt="Dilrabo Isroilova" class="person-image" width="400" height="400" fetchpriority="high">
+                <img src="mentor.webp" alt="Dilrabo Isroilova" class="person-image" width="400" height="400" fetchpriority="high" decoding="async">
             </div>
 
             <div class="cta-button">
@@ -190,7 +244,6 @@
     </footer>
 
     <!-- JavaScript yuklanishini optimize qilish -->
-    <script src="main.js">
-    </script>
+    <script src="main.js" defer></script>
 </body>
 </html>
