@@ -8,6 +8,7 @@
     <!-- Meta taglari -->
     <meta name="description" content="Dilrabo Isroilovadan 3 kunlik BEPUL master-klass. 3 KUN = 3 KALIT. Bu kalitlarga ega bo'lgan o'quvchilarim 1 kundayoq o'z hayotlarini butkul o'zgartirib yuborishdi.">
     <meta http-equiv="Cache-Control" content="max-age=31536000">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'">
 
     <!-- Preconnect to required origins -->
 
@@ -123,6 +124,9 @@
         }
     </style>
 
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <!-- Preload critical image -->
     <link rel="preload" as="image" href="mentor.webp" fetchpriority="high">
 
@@ -210,12 +214,12 @@
             <form id="registrationForm" class="registration-form">
                 <div class="form-group">
                     <label for="fullName">To'liq ismingiz</label>
-                    <input type="text" id="fullName" name="fullName" placeholder="Ismingizni kiriting" required autocomplete="fullname">
+                    <input type="text" id="fullName" name="fullName" placeholder="Ismingizni kiriting" required autocomplete="fullname" autofocus>
                 </div>
 
                 <div class="form-group">
                     <label for="phoneNumber">Telefon raqamingiz</label>
-                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+998 XX XXX XX XX" required autocomplete="tell">
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+998 XX XXX XX XX" pattern="\+998[0-9]{9}" required autocomplete="tell">
                 </div>
 
                 <div class="form-group">
